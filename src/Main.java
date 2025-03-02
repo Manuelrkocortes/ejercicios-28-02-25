@@ -6,64 +6,57 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //1 duplica
-        //2 pierde la mitad
-        //3 pierdetodo
-        Scanner teclado = new Scanner(System.in);
-        Random ale = new Random();
-        double dinero;
-        int aleatorio;
-        double resultado = 0;
-        int opcion;
-        aleatorio = ale.nextInt((3 - 1 + 1)) + 1;
-        System.out.println("digite la cantidad que quiere apostar");
-        dinero = teclado.nextInt();
-        do {
-            if (aleatorio == 3) {
-                resultado = dinero * 0;
-                System.out.println("ha perdido su dinero");
-                System.out.println("su dinero es:" + resultado);
-                break;
-            } else if (aleatorio == 2) {
+                Scanner scanner = new Scanner(System.in);
+                Random random = new Random();
+                while (true) {
+                    int num1 = random.nextInt(100) + 1;
+                    int num2 = random.nextInt(100) + 1;
+                    System.out.println("Número 1: " + num1);
+                    System.out.println("Número 2: " + num2);
+                    System.out.println("Ingrese un signo aritmético (suma: +, resta: -, multiplicacion: *, division: /, ^, %): ");
+                    System.out.println("Para ver todas las operaciones, escriba 'all'");
 
-                resultado = dinero / 2;
-                System.out.println("ha perdido la mitad de su dinero");
-                System.out.println("quiere seguir jugando si=1 no=2");
-                opcion = teclado.nextInt();
-                if (opcion == 1) {
-                     aleatorio = ale.nextInt((3 - 1 + 1)) + 1;
-                    continue;
-                }
-                else if (opcion ==2){
-                    break;
-                }
+                    String signo = scanner.next();
+                    double resultado = 0;
+                    switch (signo) {
+                        case "+":
+                            resultado = num1 + num2;
+                            break;
+                        case "-":
+                            resultado = num1 - num2;
+                            break;
+                        case "*":
+                            resultado = num1 * num2;
+                            break;
+                        case "/":
+                            resultado = (double) num1 / num2;
+                            break;
+                        case "^":
+                            resultado = Math.pow(num1, num2);
+                            break;
+                        case "%":
+                            resultado = num1 % num2;
+                            break;
+                        case "all":
+                            System.out.println("Suma: " + (num1 + num2));
+                            System.out.println("Resta: " + (num1 - num2));
+                            System.out.println("Multiplicación: " + (num1 * num2));
+                            System.out.println("División: " + ((double) num1 / num2));
+                            System.out.println("Potencia: " + Math.pow(num1, num2));
+                            System.out.println("Módulo: " + (num1 % num2));
+                            break;
+                        default:
+                            System.out.println("Signo aritmético no válido.");
+                            continue;
+                    }
+                    System.out.println("Resultado: " + resultado);
 
+                    System.out.println("¿Desea realizar otra operación? (s/n): ");
+                    String continuar = scanner.next();
+                    if (!continuar.equalsIgnoreCase("s")) {
+                        break;
+                    }
                 }
-             else if (aleatorio == 1) {
-                resultado = dinero * 2;
-                System.out.println("su dinero se duplico");
-                System.out.println("su ganancia es:" + resultado);
-                System.out.println("quiere seguir jugando si=1 no=2");
-                opcion = teclado.nextInt();
-                if (opcion == 1) {
-                     aleatorio = ale.nextInt((3 - 1 + 1)) + 1;
-                    continue;
-                }
-                else if (opcion ==2){
-                    break;
-                }
+                scanner.close();
             }
-            System.out.println("su dinero se duplico");
-             System.out.println("su ganancia es:" + resultado);
-            System.out.println("quiere seguir jugando si=1 no=2");
-            opcion = teclado.nextInt();
-            if (opcion == 1) {
-                continue;
-            }
-            else if (opcion ==2){
-                break;
-            }
-        }while ( aleatorio == ale.nextInt((3 - 1 + 1)) + 1);
-
-    }
 }
