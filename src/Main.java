@@ -41,7 +41,7 @@ public class Main {
                         System.out.println("Multiplicación: " + (num1 * num2));
                         System.out.println("División: " + ((double) num1 / num2));
                         System.out.println("Potencia: " + Math.pow(num1, num2));
-                        System.out.println("Módulo: " + (num1 % num2));
+                        System.out.println("Porcentaje:" + (num1 % num2));
                         continue;
                     } else {
                         System.out.println("Signo aritmético no válido.");
