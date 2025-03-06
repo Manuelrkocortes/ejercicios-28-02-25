@@ -8,9 +8,14 @@ public class Main {
     public static void main(String[] args) {
                 Scanner scanner = new Scanner(System.in);
                 Random random = new Random();
+                System.out.println("Bienvenido a la calculadora de operaciones aritméticas");
+                System.out.println("Para realizar una operación, ingrese dos números y un signo aritmético");
+                System.out.println("Si desea ver todas las operaciones posibles, escriba 'all'");
                 while (true) {
-                    int num1 = random.nextInt(100) + 1;
-                    int num2 = random.nextInt(100) + 1;
+                    System.out.println("Ingrese el primer número: ");
+                    int num1 = scanner.nextInt();
+                    System.out.println("Ingrese el segundo número: ");
+                    int num2 = scanner.nextInt();
                     System.out.println("Número 1: " + num1);
                     System.out.println("Número 2: " + num2);
                     System.out.println("Ingrese un signo aritmético (suma: +, resta: -, multiplicacion: *, division: /, ^, %): ");
@@ -18,36 +23,29 @@ public class Main {
 
                     String signo = scanner.next();
                     double resultado = 0;
-                    switch (signo) {
-                        case "+":
-                            resultado = num1 + num2;
-                            break;
-                        case "-":
-                            resultado = num1 - num2;
-                            break;
-                        case "*":
-                            resultado = num1 * num2;
-                            break;
-                        case "/":
-                            resultado = (double) num1 / num2;
-                            break;
-                        case "^":
-                            resultado = Math.pow(num1, num2);
-                            break;
-                        case "%":
-                            resultado = num1 % num2;
-                            break;
-                        case "all":
-                            System.out.println("Suma: " + (num1 + num2));
-                            System.out.println("Resta: " + (num1 - num2));
-                            System.out.println("Multiplicación: " + (num1 * num2));
-                            System.out.println("División: " + ((double) num1 / num2));
-                            System.out.println("Potencia: " + Math.pow(num1, num2));
-                            System.out.println("Módulo: " + (num1 % num2));
-                            break;
-                        default:
-                            System.out.println("Signo aritmético no válido.");
-                            continue;
+                    if (signo.equals("+")) {
+                        resultado = num1 + num2;
+                    } else if (signo.equals("-")) {
+                        resultado = num1 - num2;
+                    } else if (signo.equals("*")) {
+                        resultado = num1 * num2;
+                    } else if (signo.equals("/")) {
+                        resultado = (double) num1 / num2;
+                    } else if (signo.equals("^")) {
+                        resultado = Math.pow(num1, num2);
+                    } else if (signo.equals("%")) {
+                        resultado = num1 % num2;
+                    } else if (signo.equals("all")) {
+                        System.out.println("Suma: " + (num1 + num2));
+                        System.out.println("Resta: " + (num1 - num2));
+                        System.out.println("Multiplicación: " + (num1 * num2));
+                        System.out.println("División: " + ((double) num1 / num2));
+                        System.out.println("Potencia: " + Math.pow(num1, num2));
+                        System.out.println("Módulo: " + (num1 % num2));
+                        continue;
+                    } else {
+                        System.out.println("Signo aritmético no válido.");
+                        continue;
                     }
                     System.out.println("Resultado: " + resultado);
 
@@ -59,4 +57,4 @@ public class Main {
                 }
                 scanner.close();
             }
-}
+        }
